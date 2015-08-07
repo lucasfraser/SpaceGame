@@ -7,9 +7,11 @@ import com.badlogic.gdx.graphics.Texture;
  */
 
 public class Images {
-    public static Texture img;
+    public static Texture computer;
+    public static Texture player;
 
     public static void loadImages(){
-        img = new Texture("badlogic.jpg");
+        computer = new Texture("computer.png");
+        player = new Texture("player.png");
     }
 }

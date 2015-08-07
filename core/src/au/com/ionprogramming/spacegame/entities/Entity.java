@@ -1,9 +1,11 @@
 package au.com.ionprogramming.spacegame.entities;
 
-import com.badlogic.gdx.graphics.Color;
+import au.com.ionprogramming.spacegame.gfx.Lighting;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import javafx.scene.effect.Light;
 
 /**
  * Created by Lucas on 3/08/2015.
@@ -12,14 +14,11 @@ import com.badlogic.gdx.physics.box2d.*;
 public class Entity {
 
 
-    private Vector2 loc;
-	private Vector2 size;
-    private Body body;
-	private Color color;
+    protected Vector2 loc;
+	protected Vector2 size;
+    protected Body body;
 
-    public Entity(boolean moving, float x, float y, float width, float height, World world, Color col){
-
-		color = col;
+    public Entity(boolean moving, float x, float y, float width, float height, World world, Lighting lighting, boolean lockRotation){
 
         loc = new Vector2(x, y);
 
@@ -30,7 +29,8 @@ public class Entity {
 
 		BodyDef bodyDef = new BodyDef();
 
-		bodyDef.position.set(x + width/2 , y + height / 2);
+		bodyDef.position.set(loc.x + width/2 , loc.y + height / 2);
+		bodyDef.fixedRotation = lockRotation;
 
         if(moving){
 		    bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -45,22 +45,20 @@ public class Entity {
 
 			Fixture fixture = body.createFixture(fixtureDef);
         }
-        else{
+        else {
             bodyDef.type = BodyDef.BodyType.StaticBody;
 
 			body = world.createBody(bodyDef);
 
 			body.createFixture(shape, 0.0f);
-
        }
 
 		shape.dispose();
     }
 
-    public void render(ShapeRenderer r){
+	public void render(ShapeRenderer r, SpriteBatch batch){
 
-		r.setColor(color);
-		r.rect(body.getPosition().x - size.x/2, body.getPosition().y - size.y/2, size.x / 2, size.y / 2, size.x, size.y, 1, 1, (float)Math.toDegrees(body.getAngle()));
+
 
 	}
 }

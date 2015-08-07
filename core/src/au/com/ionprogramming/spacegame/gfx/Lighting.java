@@ -24,14 +24,14 @@ public class Lighting {
         rayHandler = new RayHandler(phys.getWorld());
 
         rayHandler.setAmbientLight(new Color(0.1f, 0.1f, 0.1f, 0.2f));
-
-        addPointLight(10, 10, 30, new Color(1,0,0,1), true, phys.getWorld());
-
-        addPointLight(40, 25, 30, new Color(0,1,0,1), true, phys.getWorld());
-
-        addPointLight(20, 15, 30, new Color(0,0,1,1), true, phys.getWorld());
-
-        addPointLight(2, 45, 30, new Color(61, 0, 142, 255), true, phys.getWorld());
+//
+//        addPointLight(10, 10, 30, new Color(1,0,0,1), true, phys.getWorld());
+//
+//        addPointLight(40, 25, 30, new Color(0,1,0,1), true, phys.getWorld());
+//
+//        addPointLight(20, 15, 30, new Color(0,0,1,1), true, phys.getWorld());
+//
+//        addPointLight(2, 45, 30, new Color(61, 0, 142, 255), true, phys.getWorld());
 
         //rayHandler.setShadows(false);
 

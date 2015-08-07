@@ -21,7 +21,7 @@ public class Physics {
     }
 
     public void render(OrthographicCamera cam){
-//        debugRenderer.render(world, cam.combined);
+        debugRenderer.render(world, cam.combined);
     }
 
     public void doPhysicsStep(float deltaTime) {

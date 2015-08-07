@@ -20,8 +20,8 @@ public class SpaceGame extends ApplicationAdapter {
 		Images.loadImages();
 
 		physics = new Physics();
-		renderer = new Renderer(physics);
 		lighting = new Lighting(physics);
+		renderer = new Renderer(physics, lighting);
 
 	}
 
